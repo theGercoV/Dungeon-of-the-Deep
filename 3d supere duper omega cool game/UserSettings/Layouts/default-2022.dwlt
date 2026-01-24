@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 109
+  controlID: 24
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 49
+  controlID: 69
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -247,8 +247,8 @@ MonoBehaviour:
     y: 0
     width: 410.5
     height: 322
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -326,10 +326,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1920
-    y: 72.66667
-    width: 1408.3334
-    height: 646.3333
+    x: 6.5
+    y: 78.5
+    width: 784.5
+    height: 363
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -396,10 +396,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1920
-    y: 72.66667
-    width: 1408.3334
-    height: 646.3333
+    x: 6.5
+    y: 78.5
+    width: 784.5
+    height: 363
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -448,8 +448,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -174, y: -26.666687}
-      snapOffsetDelta: {x: -2.5, y: 0}
+      snapOffset: {x: -176.5, y: -26.666687}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -668,7 +668,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       floating: 0
       collapsed: 0
-      displayed: 0
+      displayed: 1
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -779,9 +779,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.7280378, y: 3.3076935, z: -5.4168463}
+    m_Target: {x: 51.75534, y: 4.197152, z: -42.1568}
     speed: 2
-    m_Value: {x: 3.7280378, y: 3.3076935, z: -5.4168463}
+    m_Value: {x: 51.75534, y: 4.197152, z: -42.1568}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -819,7 +819,7 @@ MonoBehaviour:
       m_Fade:
         m_Target: 0
         speed: 2
-        m_Value: 0
+        m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -827,20 +827,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.0015064857, y: 0.99744755, z: 0.022137338, w: -0.06787999}
+    m_Target: {x: -0.088990904, y: -0.4651995, z: 0.046977494, w: -0.87935376}
     speed: 2
-    m_Value: {x: 0.0015064857, y: 0.99744755, z: 0.022137338, w: -0.06787999}
+    m_Value: {x: -0.089694895, y: -0.46455103, z: 0.04726375, w: -0.8797234}
   m_Size:
-    m_Target: 1.902134
+    m_Target: 4.726296
     speed: 2
-    m_Value: 1.902134
+    m_Value: 4.5227714
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1.6019995
-    m_SpeedNormalized: 0.7999998
+    m_Speed: 1.9601992
+    m_SpeedNormalized: 0.9799996
     m_SpeedMin: 0.01
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -851,7 +851,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewRotation: {x: 0.047201417, y: 0.93870753, z: -0.14288943, w: 0.31008947}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -992,10 +992,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: c623ffff
+      scrollPos: {x: 0, y: 304}
+      m_SelectedIDs: 84bcfeffc2bdfeffb2befeff3abffeffacbffeff3ec0fefff6c0feff96c1feff00c2feff8ec2feff46c3feffe2c4feff12c6feffb8c6feff76c9feffc6ccfeffc8ccfeffcaccfeff1ad2feff20d2feff2ad2feff12d9feff5adefeff38e3feff3ae3feffd8ebfeff30effeff0ef1feff84f7feffdefafeffe0fafeffe2fafeffe4fafeffe6fafeff8601ffffb402ffff6605ffff3e07fffffe08ffff280effff3c13ffffb423ffffbc23ffff
+      m_LastClickedID: -74150
+      m_ExpandedIDs: c6ccfeff2ad2feffc623ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1064,7 +1064,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Gridness Studios/Elementary Dungeon Pack Lite/Prefabs
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Gridness Studios/Elementary Dungeon Pack Lite/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\joelw\Unity\Dungeon-of-the-Deep\3d supere duper omega
     cool game
@@ -1080,9 +1080,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: fe050000
-    m_LastClickedID: 1534
-    m_ExpandedIDs: 00000000fe05000000ca9a3b
+    m_SelectedIDs: b0830000
+    m_LastClickedID: 33712
+    m_ExpandedIDs: 00000000fe050000948300009883000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: b462000080860000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1207,7 +1207,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 591
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
