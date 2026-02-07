@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class FirstPersonController_HealthRegen : MonoBehaviour
@@ -15,8 +16,8 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
 
     [Header("Stamina")]
     public float maxStamina = 10f;
-    public float regenDelay = 5f; // Zeit nach Inaktivität bevor Stamina regeneriert
-    public float regenSpeed = 2f; // Stamina pro Sekunde beim Auffüllen
+    public float regenDelay = 5f;
+    public float regenSpeed = 2f;
     private float currentStamina;
     private float idleTimer = 0f;
     public Image sprintBarFill;
@@ -27,9 +28,12 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
     public Image healthBarFill;
 
     [Header("Health Regen")]
-    public float regenInterval = 10f; // jede 10 Sekunden
-    public int regenAmount = 10;
+    public float regenDelayAfterHit = 5f;
+    public float regenInterval = 1f;
+    public int regenAmount = 2;
+
     private float healthRegenTimer = 0f;
+    private float lastDamageTime;
 
     private Rigidbody rb;
     private float xRotation;
@@ -56,7 +60,7 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
         HandleStamina();
         HandleHealthRegen();
 
-        // Test Damage
+        // Test Damage Taste
         if (Input.GetKeyDown(KeyCode.K))
             TakeDamage(10);
     }
@@ -66,7 +70,6 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
         Move();
     }
 
-    // --- MOUSE LOOK ---
     void MouseLook()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * 100f * Time.deltaTime;
@@ -79,7 +82,6 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX);
     }
 
-    // --- MOVE ---
     void Move()
     {
         float h = Input.GetAxisRaw("Horizontal");
@@ -88,7 +90,9 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
         Vector3 move = transform.forward * v + transform.right * h;
         move.Normalize();
 
-        bool sprinting = Input.GetKey(KeyCode.LeftShift) && (v != 0 || h != 0) && currentStamina > 0;
+        bool sprinting = Input.GetKey(KeyCode.LeftShift) &&
+                         (v != 0 || h != 0) &&
+                         currentStamina > 0;
 
         float speed = sprinting ? sprintSpeed : walkSpeed;
 
@@ -97,7 +101,6 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
         rb.velocity = velocity;
     }
 
-    // --- JUMP ---
     void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -113,7 +116,7 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
             isGrounded = true;
     }
 
-    // --- STAMINA ---
+    // ---------- STAMINA ----------
     void HandleStamina()
     {
         float h = Input.GetAxisRaw("Horizontal");
@@ -125,49 +128,57 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
         {
             currentStamina -= Time.deltaTime;
             if (currentStamina < 0) currentStamina = 0;
-            idleTimer = 0f; // Reset Inaktivitäts-Timer
+            idleTimer = 0f;
         }
         else
         {
             idleTimer += Time.deltaTime;
+
             if (idleTimer >= regenDelay && currentStamina < maxStamina)
             {
                 currentStamina += regenSpeed * Time.deltaTime;
-                if (currentStamina > maxStamina) currentStamina = maxStamina;
+                if (currentStamina > maxStamina)
+                    currentStamina = maxStamina;
             }
         }
 
         UpdateUI();
     }
 
-    // --- HEALTH REGEN ---
+    // ---------- HEALTH REGEN ----------
     void HandleHealthRegen()
     {
+        if (Time.time - lastDamageTime < regenDelayAfterHit)
+            return;
+
         healthRegenTimer += Time.deltaTime;
 
         if (healthRegenTimer >= regenInterval)
         {
             currentHealth += regenAmount;
-            if (currentHealth > maxHealth)
-                currentHealth = maxHealth;
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
             healthRegenTimer = 0f;
             UpdateUI();
         }
     }
 
-    // --- HEALTH DAMAGE ---
+    // ---------- DAMAGE ----------
     public void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        lastDamageTime = Time.time;
+        healthRegenTimer = 0f;
+
         UpdateUI();
 
         if (currentHealth <= 0)
             Debug.Log("Player Dead");
     }
 
-    // --- UI UPDATE ---
+    // ---------- UI ----------
     void UpdateUI()
     {
         if (healthBarFill != null)
