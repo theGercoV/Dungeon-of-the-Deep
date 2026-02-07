@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1440
     height: 810
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 125
+  controlID: 48
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -779,9 +779,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4.0637164, y: 2.9414709, z: -4.584553}
+    m_Target: {x: 0.76396704, y: 3.4833229, z: -6.879721}
     speed: 2
-    m_Value: {x: 4.0637164, y: 2.9414709, z: -4.584553}
+    m_Value: {x: 0.76396704, y: 3.4833229, z: -6.879721}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -827,13 +827,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.06586732, y: -0.85846096, z: 0.11393324, w: -0.49549812}
+    m_Target: {x: 0.024187291, y: 0.7542781, z: 0.027653314, w: -0.65536696}
     speed: 2
-    m_Value: {x: -0.06615994, y: -0.8588356, z: 0.11463851, w: -0.4948559}
+    m_Value: {x: 0.024189817, y: 0.7543569, z: 0.027656203, w: -0.6554354}
   m_Size:
     m_Target: 3.8916402
     speed: 2
-    m_Value: 4.075016
+    m_Value: 3.8916402
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -995,7 +995,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3845fffffc48ffff164efffff053ffffecbcffff50e4ffff2efbffffa6700000
+      m_ExpandedIDs: 2efbffff425b00004a5b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1011,7 +1011,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 10}
+        m_ClientGUIView: {fileID: 7}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1064,7 +1064,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Player
+    - Assets/LowPolyWeapons/Prefabs/Hammers1H
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Player
+  - Assets/LowPolyWeapons/Prefabs/Hammers1H
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\joelw\Unity\Dungeon-of-the-Deep\3d supere duper omega
     cool game
@@ -1080,9 +1080,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: da5c0000
-    m_LastClickedID: 23770
-    m_ExpandedIDs: 00000000665b0000685b00003866000000ca9a3b
+    m_SelectedIDs: b05b0000
+    m_LastClickedID: 23472
+    m_ExpandedIDs: 000000009c5b00009e5b0000aa5b0000b25b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1110,7 +1110,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 000000009c5b00009e5b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: b462000080860000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1207,7 +1207,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 540
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class FirstPersonController_HealthRegen : MonoBehaviour
@@ -14,10 +15,10 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
 
     [Header("Stamina")]
     public float maxStamina = 10f;
-    public float cooldownTime = 5f; // Zeit nach leerer Stamina bevor Auffüllen startet
+    public float regenDelay = 5f; // Zeit nach Inaktivität bevor Stamina regeneriert
+    public float regenSpeed = 2f; // Stamina pro Sekunde beim Auffüllen
     private float currentStamina;
-    private float cooldownTimer;
-    private bool isRefilling = false;
+    private float idleTimer = 0f;
     public Image sprintBarFill;
 
     [Header("Health")]
@@ -28,7 +29,7 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
     [Header("Health Regen")]
     public float regenInterval = 10f; // jede 10 Sekunden
     public int regenAmount = 10;
-    private float regenTimer = 0f;
+    private float healthRegenTimer = 0f;
 
     private Rigidbody rb;
     private float xRotation;
@@ -87,10 +88,7 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
         Vector3 move = transform.forward * v + transform.right * h;
         move.Normalize();
 
-        bool sprinting = Input.GetKey(KeyCode.LeftShift) &&
-                         (v != 0 || h != 0) &&
-                         currentStamina > 0 &&
-                         !isRefilling;
+        bool sprinting = Input.GetKey(KeyCode.LeftShift) && (v != 0 || h != 0) && currentStamina > 0;
 
         float speed = sprinting ? sprintSpeed : walkSpeed;
 
@@ -123,35 +121,19 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
 
         bool sprinting = Input.GetKey(KeyCode.LeftShift) && (v != 0 || h != 0);
 
-        if (sprinting && !isRefilling)
+        if (sprinting && currentStamina > 0)
         {
             currentStamina -= Time.deltaTime;
-            if (currentStamina <= 0)
-            {
-                currentStamina = 0;
-                isRefilling = true;
-                cooldownTimer = 0f;
-            }
+            if (currentStamina < 0) currentStamina = 0;
+            idleTimer = 0f; // Reset Inaktivitäts-Timer
         }
-
-        if (isRefilling)
+        else
         {
-            cooldownTimer += Time.deltaTime;
-
-            if (cooldownTimer < cooldownTime)
+            idleTimer += Time.deltaTime;
+            if (idleTimer >= regenDelay && currentStamina < maxStamina)
             {
-                currentStamina = 0;
-            }
-            else if (cooldownTimer >= cooldownTime && cooldownTimer <= cooldownTime * 2)
-            {
-                float fillProgress = (cooldownTimer - cooldownTime) / cooldownTime;
-                currentStamina = Mathf.Lerp(0, maxStamina, fillProgress);
-            }
-            else
-            {
-                currentStamina = maxStamina;
-                isRefilling = false;
-                cooldownTimer = 0f;
+                currentStamina += regenSpeed * Time.deltaTime;
+                if (currentStamina > maxStamina) currentStamina = maxStamina;
             }
         }
 
@@ -161,20 +143,20 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
     // --- HEALTH REGEN ---
     void HandleHealthRegen()
     {
-        regenTimer += Time.deltaTime;
+        healthRegenTimer += Time.deltaTime;
 
-        if (regenTimer >= regenInterval)
+        if (healthRegenTimer >= regenInterval)
         {
             currentHealth += regenAmount;
             if (currentHealth > maxHealth)
                 currentHealth = maxHealth;
 
-            regenTimer = 0f;
+            healthRegenTimer = 0f;
             UpdateUI();
         }
     }
 
-    // --- HEALTH ---
+    // --- HEALTH DAMAGE ---
     public void TakeDamage(int dmg)
     {
         currentHealth -= dmg;
@@ -185,6 +167,7 @@ public class FirstPersonController_HealthRegen : MonoBehaviour
             Debug.Log("Player Dead");
     }
 
+    // --- UI UPDATE ---
     void UpdateUI()
     {
         if (healthBarFill != null)
